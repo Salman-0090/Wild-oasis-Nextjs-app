@@ -57,7 +57,7 @@ export async function getGuest(email) {
     .from("guests")
     .select("*")
     .eq("email", email)
-    .single();
+    .maybeSingle();
 
   // No error here! We handle the possibility of no guest in the sign in callback
   return data;
