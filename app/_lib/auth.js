@@ -20,11 +20,16 @@ const authConfig = {
         if (!existingGuest)
           await createGuest({ email: user.email, fullName: user.name });
         return true;
-      } catch {
+      } catch (err) {
         console.error("SignIn callback error:", err);
 
-        return true;
+        return false;
       }
+    },
+    async session({ session, user }) {
+      const guest = await getGuest(session.user.email);
+      session.user.guestId = guest.id;
+      return session;
     },
   },
   pages: {
