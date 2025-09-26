@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getBookedDatesByCabinId, getCabin } from "@/app/_lib/data-service";
 import { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 
